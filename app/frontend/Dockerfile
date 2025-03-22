@@ -1,11 +1,17 @@
 # 使用 Golang 官方镜像作为构建基础
 FROM golang:1.21.13-bullseye
 
+# 设置工作目录
+WORKDIR /app/frontend
+
 # 将当前目录的所有文件复制到容器的 /app/frontend 目录下
 COPY . /app/frontend
 
-# 设置工作目录
-WORKDIR /app/frontend
+# 配置 GOPROXY ，以从国内的代理源拉取依赖
+RUN go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/
+
+# 整理依赖（可选）
+RUN go mod tidy
 
 # 使用 bash 脚本编译服务
 RUN bash build.sh

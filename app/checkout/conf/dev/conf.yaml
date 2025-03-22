@@ -10,18 +10,26 @@ kitex:
 
 registry:
   registry_address:
-    - 127.0.0.1:8800
+    - gomall-consul:8500
+    # - host.docker.internal:8800
+    # - 127.0.0.1:8800
   username: "abc114514"
   password: "abc114514"
 
 mysql:
-  dsn: "gorm:gorm@tcp(127.0.0.1:13306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+  dsn: "gorm:gorm@tcp(gomall-mysql:3306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+  # dsn: "gorm:gorm@tcp(127.0.0.1:13306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+  # dsn: "gorm:gorm@tcp(host.docker.internal:13306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
 
 redis:
-  address: "127.0.0.1:16379"
+  address: "gomall-redis:6379"
+  # address: "127.0.0.1:16379"
+  # address: "host.docker.internal:16379"
   username: ""
   password: "abc114514"
   db: 0
 
 nats:
-  url: "nats://127.0.0.1:4222"
+  url: "nats://gomall-nats:4222"
+  # url: "nats://127.0.0.1:4322"
+  # url: "nats://host.docker.internal:4222"

@@ -30,7 +30,7 @@ services:
     container_name: gomall-nats
     image: nats:latest
     ports:
-      - "4222:4222"
+      - "4322:4222"
       - "8222:8222"
     networks:
       - gomall

@@ -9,13 +9,19 @@ hertz:
   log_max_size: 10
   log_max_age: 3
   log_max_backups: 50
-  registry_addr: "localhost:8800"
+  # registry_addr: "localhost:8800"
+  # registry_addr: "host.docker.internal:8800"
+  registry_addr: "gomall-consul:8500"
 
 mysql:
-  dsn: "gorm:gorm@tcp(127.0.0.1:13306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+  dsn: "gorm:gorm@tcp(gomall-mysql:3306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+  # dsn: "gorm:gorm@tcp(127.0.0.1:13306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+  # dsn: "gorm:gorm@tcp(host.docker.internal:13306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
 
 redis:
-  address: "127.0.0.1:16379"
+  address: "gomall-redis:6379"
+  # address: "127.0.0.1:16379"
+  # address: "host.docker.internal:16379"
   username: ""
   password: "abc114514"
   db: 0
